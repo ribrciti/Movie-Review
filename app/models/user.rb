@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :movies
+  has_many :reviews, dependent: :destroy  #if a user is deleted, all reviews are deleted with this extra code
 end
